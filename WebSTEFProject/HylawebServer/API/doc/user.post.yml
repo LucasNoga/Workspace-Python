@@ -1,0 +1,27 @@
+Crée ou demande la mise a jour de l'utilisateur
+---
+tags:
+  - user
+description: demande la mise à jour des informations de l'utilisateur identifié par son {guid}
+parameters:
+  - name: guid
+    in: path
+    type: string
+    required: true
+    description: Le GUID de l'utilisateur 
+responses:
+  '201':
+    description: "l'operation s'est correctement effectuée"
+    schema:
+      $ref: '#/definitions/json'
+    examples:
+      update user:
+        title: "Update USER : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+        description: ""
+        status: "OK"
+        items: ""
+      New user:
+        title: "Create USER : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+        description: ""
+        status: "OK"
+        items: ""

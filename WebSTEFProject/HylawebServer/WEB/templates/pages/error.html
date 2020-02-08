@@ -1,0 +1,21 @@
+{% extends 'layout/default.html' %}
+
+<html>
+{% block head %} {% endblock %} {% block body %}
+<div class="ui basic modal">
+    <div class="ui icon header">
+        <i class="exclamation triangle red icon"></i>
+        <span id='error-msg'>{{ message.decode('utf-8') }}</span>
+        <br>
+        <a href="{{url_for('fax_receive')}}">Retour à la page de réception des fax</a>
+    </div>
+</div>
+<script>
+    $('.ui.modal').modal({
+        closable: false,
+    }).modal('show');
+</script> {% endblock %}
+
+
+
+</html>

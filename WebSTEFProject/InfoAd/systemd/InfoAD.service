@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn instance to serve InfoAD
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/InfoAD/WEB
+Environment="PATH=/opt/InfoAD/InfoADenv/bin"
+ExecStart=/opt/InfoAD/InfoADenv/bin/gunicorn --workers 3 --bind unix:InfoAD.sock -m 007 wsgi-InfoAD:app
+
+[Install]
+WantedBy=multi-user.target
+

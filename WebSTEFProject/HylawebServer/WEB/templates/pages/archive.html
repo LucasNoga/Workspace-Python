@@ -1,0 +1,61 @@
+{% set active_page = 'Archives' -%} {% set color_nav_bar = 'grey' -%} {% extends 'layout/hylaweb.html' %} {% block content
+%}
+<script src="{{ url_for('static', filename='js/archive.js') }}?v={{VERSION_JS}}"></script>
+<script src="{{ url_for('static', filename='js/hylaweb.lazy.js') }}?v={{VERSION_JS}}"></script>
+<script src="{{ url_for('static', filename='daterangepicker/daterangepicker.js') }}?v={{VERSION_JS}}"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static', filename='daterangepicker/daterangepicker.css')}}">
+<link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static', filename='css/archive.css')}}">
+<div id="main" class="ui inverted teal segment">
+    <form id="search" class="ui inverted form">
+        <div class="field">
+            <div class="four fields">
+
+                <div class="field">
+                    <label>Type de fax</label>
+                    <div id="type" class="ui selection dropdown">
+                        <input type="hidden" name="type-fax" value="RX">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Type de fax</div>
+                        <div class="menu">
+                            <div class="item selected" data-value="RX">Réception</div>
+                            <div class="item" data-value="TX">Emission</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Date</label>
+                    <div id="dates" class="field ui left icon input">
+                        <i id="#icondate" class="calendar icon"></i>&nbsp;
+                        <input type="text" readonly name="date" placeholder="Search...">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Mots clés</label>
+                    <div id="search-tag" class="ui multiple selection floating dropdown search icon fluid">
+                        <i class="tag icon"></i>
+                        <input type="text" class="search" tabindex="0">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="ui primary submit button" tabindex="0">Lancer la recherche</div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div class="column">
+    <div class="ui warning hidden message">
+        <div class="header">La requête n'a abouti à aucun résultat</div>
+    </div>
+    <div id="liste-fax" class="ui link cards"></div>
+</div>
+
+
+
+
+{% endblock %}

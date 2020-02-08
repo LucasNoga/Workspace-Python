@@ -1,0 +1,15 @@
+[DATABASE]
+host = XX.XX.XX.XX
+name = bd_hylafax
+user = 
+pass = 
+
+[RABBITMQ]
+host = localhost
+user =
+pass =
+vhost = HYLAFAX
+exchange = hyla.abonnement
+
+[LOG]
+Level = DEBUG

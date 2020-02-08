@@ -1,0 +1,35 @@
+Recuperation de la liste des fichiers mis en attente par le user 
+---
+tags:
+  - standby
+description: retourne la liste des filename se trouvant dans le dossier STANDBY
+parameters:
+  - name: login
+    in: query
+    type: string
+    required: true
+    description: login AD de l'utilisateur 
+
+definitions:
+  FileList:
+    allOf:
+      - $ref: '#/definitions/json'
+      - type: object
+        properties:
+          items:
+            type: array
+            $ref: '#/definitions/File'
+  
+  File:
+    type: string
+
+responses:
+  '200':
+    description: json avec la liste des fichiers
+    schema:
+      $ref: '#/definitions/FileList'
+    examples:
+      title: "Liste des fichiers en attente"
+      description: "Liste des fax en en attente pour l'utilisateur ayant comme login XXXX"
+      status: "OK"
+      items: ['File1.pdf', 'File2.pdf', 'File3.pdf']

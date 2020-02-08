@@ -1,0 +1,153 @@
+definitions:
+  json:
+    type: object
+    properties:
+      title:
+        type: string
+        description: "Nom de l'API appelée"
+      items:
+        description: "Retourne le resultat de l'API"
+        type: string
+      status:
+        type: string
+        enum: [OK,KO]
+        description: "retourne OK si la commande s'est terminée correctement, sinon retourne KO"
+      description:
+        type: string
+        description: "si KO retoune le message d'erreur"
+
+  ListeFaxRX:
+    type: array
+    items:
+      $ref: '#/definitions/FaxRX'
+
+  ListeFaxTX:
+    type: array
+    items: 
+      $ref: '#/definitions/FaxTX'
+
+  FaxRX:
+    type: object
+    properties:
+      affichable:
+        type: integer
+      commid:
+        type: integer
+      proprietaire:
+        type: string
+      lu:
+        type: string
+      datetime:
+        type: string
+        format: date-time
+      etatnew:
+        type: string
+      faxname:  
+        type: string
+      id:  
+        type: integer
+      id_service: 
+        type: integer
+      ndoc_arc:  
+        type: integer
+      npages:
+        type: integer
+      sender: 
+        type: string
+      tag: 
+        type: array
+        items:
+          type: string
+
+  FaxTX:
+    type: object
+    properties:
+      affichable:
+        type: integer
+      cc_exp: 
+        type: string
+      commid: 
+        type: integer
+      company: 
+        type: string
+      covernotes: 
+        type: string
+      coverpage: 
+        type: string
+      coversubject: 
+        type: string
+      date_envoi: 
+          type: string
+          format: date-time
+      datetime:
+        type: string
+        format: date-time
+      datetime_dif: 
+        type: string
+        format: date-time
+      dest: 
+        type: string
+      dials:
+        type: integer
+      filename:  
+        type: string
+      id:  
+        type: integer
+      id_server:
+        type: integer
+      id_service: 
+        type: integer
+      id_util: 
+        type: integer
+      jobid:
+        type: integer
+      jobtime: 
+        type: string
+        format: date-time
+      location: 
+        type: string
+      mail: 
+        type: string
+        format: email
+      maj: 
+        type: integer
+      modem: 
+        type: string
+      nb_envoi: 
+        type: integer
+      ndoc_arc:  
+        type: integer
+      ndoc_rap: 
+        type: integer
+      npages:
+        type: integer
+      nref_ext: 
+        type: string
+      numdest:
+        type: string
+      numdest_dial: 
+        type: string
+      numsender: 
+        type: string
+      papertype:  
+        type: string
+      priority:  
+        type: integer
+      resolution:  
+        type: string
+      rtimes:
+        type: intger
+      sendername: 
+        type: string
+      status:
+        type: string 
+      tag:
+        type: array
+        items:
+          type: string
+      telsender:
+        type: string
+      tries:
+        type: integer 
+      typenotify:
+        type: string

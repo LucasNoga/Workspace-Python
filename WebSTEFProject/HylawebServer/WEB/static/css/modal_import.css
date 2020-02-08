@@ -1,0 +1,32 @@
+/** le modal */
+#modal-import {
+    width: 280px;
+}
+
+#modal-import .content{
+    margin-top: -25px;
+    margin-bottom: 3em;
+}
+
+/** l'endroit du drag and drop **/
+#holder {
+    display: table;
+    border: 4px dashed white;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.3em;
+    transition: border 0.4s, color 0.4s;
+}
+
+#holder.hover {
+    border-color: black;
+    color: black;
+}
+
+#holder i {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}

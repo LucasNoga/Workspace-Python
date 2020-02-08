@@ -1,0 +1,147 @@
+#sidebar
+{
+    top : 40px;
+}
+
+body
+{
+    overflow-y: hidden;
+}
+
+body > .row 
+{
+    margin-left: 50px;
+    margin-top: 40px;
+}
+
+body > .row > .column 
+{
+    flex: 100%;
+    height:calc(100vh - 40px);
+    overflow-y: auto;
+}
+
+#liste-fax>.item:first-child 
+{
+    padding-top: 1.0em !important;
+}
+
+#liste-fax>.item:last-child {
+    padding-bottom: 1em !important;
+}
+
+/* Couleur pour le fax qui est survolé, conserve la couleur pour le fax selectionné */
+#liste-fax .fax.item:hover
+{
+    background-color: #eaeaea;
+}
+
+/* logo du status final */
+#liste-fax .item > .image
+{
+    width: 60px;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+/* logo du label page */
+#liste-fax .item .page
+{
+    display: inline-block;
+    width: 60px;
+}
+
+/* liste des statuts */
+#liste-fax>.item .process 
+{
+    display: inline;
+    text-align: center;
+    margin-right: 1em
+}
+
+/* Label contenant la date du fax */
+#liste-fax> .item.fax .date
+{
+    width: 300px;
+    margin-right: 1em;
+    text-align: center;
+    font-weight: 200;
+    font-size: 0.90em
+}
+
+/* la date du fax */
+#liste-fax> .item.fax .date > .datetime
+{
+    font-weight: 900;
+}
+
+/* reference externe */
+#liste-fax> .item.fax .nref-ext
+{
+    display: inline-block;
+    max-width: 200px;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* infos page de garde */
+#liste-fax> .item.fax .filefax
+{
+    white-space: nowrap;
+    margin-left: 1.5em;
+}
+
+/* tag */
+#liste-fax> .item.fax .blue.label
+{
+    margin-left: 0.5em;
+}
+
+#liste-fax > .item.fax .actions-button
+{
+    margin-top: 0.2em;
+    float: right;
+    margin-right: 1em;
+}
+
+/* ensemble des infos technique */
+#liste-fax> .item.fax .data-infos
+{
+    display: None;
+    background-color: rgb(61, 102, 102);
+}
+
+/*  info technique */
+#liste-fax> .item.fax .data-fax
+{
+    background-color: rgb(61, 102, 102);
+    color: white;
+}
+
+#liste-fax> .item.fax .nref-ext, 
+#liste-fax> .item.fax .filefax,
+#liste-fax> .item.fax .nom-sender,
+#liste-fax> .item.fax .nom-dest,
+#liste-fax> .item.fax .data-infos,
+#liste-fax> .item.fax .date-envoi, 
+#liste-fax> .item.fax .blue.label.small
+{
+    cursor: default;
+}
+
+
+#liste-fax> .item.fax .actions-button i:not(.locked),
+#liste-fax> .item.fax .filefax .file.icon
+{
+    cursor: pointer;
+}
+
+#liste-fax> .item.fax .actions-button i.locked
+{
+    opacity: 0.30;
+}
+
+#liste-fax> .item.fax .actions-button i
+{ 
+    color : white;
+}

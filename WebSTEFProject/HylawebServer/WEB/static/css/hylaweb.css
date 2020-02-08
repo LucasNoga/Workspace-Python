@@ -1,0 +1,45 @@
+#sidebar{
+    top : 40px;
+}
+
+#img-user{
+    max-height: 40px;
+    max-width: 40px;
+}
+
+#liste-agence{
+    width: 270px;
+}
+
+#chargement{
+    height: 100%;
+}
+
+
+#check-default-service:not(.disabled) i{
+    cursor: pointer; 
+}
+
+#sidebar .notif-fax{
+    right: -10px;
+    position: relative;
+    top: -25px;
+    width: 2px;
+    text-align: center;
+} 
+
+/* message d'erreur lorsqu'aucun fax n'est afficher */
+.ui.warning.message
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+}
+
+#liste-fax .separator 
+{
+    padding: 0.2em;
+    margin: 0;
+    width: 100%;
+}

@@ -1,0 +1,20 @@
+{# Fichier contenant les imports par defaut #}
+<link id="favicon" rel="shortcut icon" href="{{ url_for('static', filename='icon/icon.png') }}">
+<!-- <link id="favicon" rel="shortcut icon" href="../static/icon/icon.png"> -->
+
+<script src="{{ url_for('static', filename='jquery/js/jquery-3.2.1.min.js') }}"></script>
+
+<!-- Version de semantic-ui -->
+<link rel="stylesheet" href="{{ url_for('static', filename='Semantic-UI-2.3-Offline/semantic.min.css') }}" />
+<script src="{{ url_for('static', filename='Semantic-UI-2.3-Offline/semantic.min.js') }}"></script>
+
+<!-- Permet de stocker et de recuperer les cookies pour les messages nag de semantic-ui -->
+<script src="{{ url_for('static', filename='jquery/jquery-cookie/src/jquery.cookie.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js-logger/src/logger.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='moment/moment.js') }}"></script>
+
+<!-- Configuration du programme -->
+<script src="{{ url_for('static', filename='js/config.js')}}?v={{VERSION_JS}}"></script>
+<script src="{{ url_for('static', filename='js/functions.js')}}?v={{VERSION_JS}}"></script>

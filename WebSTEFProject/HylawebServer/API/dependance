@@ -1,0 +1,9 @@
+flask
+flask-cors
+psycopg2
+gunicorn 
+requests
+flasgger
+Pillow
+pdf2image
+

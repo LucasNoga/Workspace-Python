@@ -1,0 +1,61 @@
+{
+	"description": "Configuration de l'application HylaNotify",
+	"items": {
+		"api": {
+			"server": [{
+				"protocol": "http",
+				"host": "10.253.254.74",
+				"port": "8091"
+			}, {
+				"protocol": "http",
+				"host": "",
+				"port": ""
+			}],
+			"ressource": {
+				"user": "HylaWEB/api/V1.0/user",
+				"config": "HylaWEB/api/V1.0/HylaNotify/conf"
+			}
+		},
+		"rabbit": {
+			"host": "{{hostRabbit}}",
+			"exchange": "hyla.abonnement",
+			"QueueAbo": "",
+			"QueueSystem": ""
+		},
+        "welcome": {
+            "url": "http://10.253.254.74/HylaWEB/app/welcome",
+            "message": "Hylafax est un outil vous permettant d'envoyer, de recevoir\net de traiter des fax. Pour plus d'informations, cliquez ici.",
+            "programme": "chrome.exe",
+            "parametres": "",
+            "delay": 10000
+        },
+		"conf": {
+			"checksum": "{{checksum}}"
+		},
+		"menu": {
+			"subMenu": [{
+				"libelle": "",
+                "items": [
+                {
+					"libelle": "Gestion des fax",
+					"url": "http://10.253.254.74/HylaWEB/app/rx",
+					"programme": "chrome.exe",
+					"parametres": ""
+				}, {
+					"libelle": "Carnet d'adresses",
+					"url": "",
+					"programme": "C:\\Program Files (x86)\\Hylafax\\HylaCarnet.exe",
+					"parametres": ""
+				}, {
+					"libelle": "Nouveau Fax",
+					"url": "http://10.253.254.74/HylaWEB/app/send/new",
+					"programme": "chrome.exe",
+					"parametres": ""
+				}]
+			}]
+		},
+		"update": "fichier json de l'appUpdate"
+	},
+	"status": "OK",
+	"title": "Configuration"
+}

@@ -1,0 +1,87 @@
+Liste des fax en réception
+---
+tags:
+  - réception
+definitions:
+  ListeFax:
+      $ref: '#/definitions/json'
+      type: object
+      properties:
+        items:
+          type: array
+          $ref: '#/definitions/Fax'
+  Fax:
+    type: object
+    properties:
+      affichable:
+        type: integer
+      commid:
+        type: integer
+      proprietaire:
+        type: string
+      lu:
+        type: string
+      datetime:
+        type: string
+        format: date-time
+      etatnew:
+        type: string
+      faxname:  
+        type: string
+      id:  
+        type: integer
+      id_service: 
+        type: integer
+      ndoc_arc:  
+        type: integer
+      npages:
+        type: integer
+      sender: 
+        type: string
+      tag: 
+        type: array
+        items:
+          type: string
+
+description: Retourne les informations sur la liste des fax en reception datant de moins de 7 jours
+parameters:
+  - name: id_serv
+    in: path
+    type: integer
+    required: true
+    description: l'id de service par défaut de l'utilisateur
+  - name: nbfax_aff
+    in: path
+    type: integer
+    required: false
+    default: ''
+    description: Le nombre de fax à afficher
+  - name: dernier_id_aff
+    in: path
+    type: integer
+    required: false
+    default: ''
+    description: l'id du dernier fax permettant de récuperer les fax suivants
+
+responses:
+  '200':
+    description: Json contenant la liste des fax en réception
+    schema:  
+      $ref: '#/definitions/ListeFax'
+    examples:
+      title: "Liste fax reception"
+      description: "Liste des fax en reception pour le service 6"
+      status: "OK"
+      items:
+        commid: "2498513"
+        datetime: "2018-06-25 15:08:44"
+        etat: 7
+        etatnew: 7
+        faxname: "FAX(1)-002225250.tif"
+        id: 4206231
+        lu: ""
+        ndoc_arc: "7518551"
+        npages: 1
+        proprietaire: "Adrienne Scarlata <Adrienne.Scarlata@stef.com>"
+        sender: "FROMAGERIE DE BLAMONT"
+        tag: ["fromagerie blamont", "test"]

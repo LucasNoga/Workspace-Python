@@ -1,0 +1,21 @@
+Verifie l'existance du fax 
+---
+tags:
+  - fax
+description: Verifie l'existance du fax {filename} en attente dans le dossier WT
+parameters:
+  - name: filename
+    in: path
+    type: string
+    required: true
+    description: Le nom du fichier fax (avec extension)
+responses:
+  '200':
+    description: "l'operation s'est correctement effectuée"
+    schema:
+      $ref: '#/definitions/json'
+    examples:
+      title: "Exist Fax xxxxx.xx"
+      description: ""
+      status: "OK"
+      items: ""

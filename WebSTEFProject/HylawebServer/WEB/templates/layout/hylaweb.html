@@ -1,0 +1,112 @@
+{% set default_bar = [ ('rx', 'Réception', 'sign in alternate icon'), ('tx', 'Émission', 'sign out alternate icon'), ('arc',
+'Archive', 'archive icon'), ('newFax', 'Nouveau Fax', 'file alternate icon'), ('carnet', 'Carnet d\'adresse', 'user icon'),
+('aide', 'Aide', 'help icon') ] -%} {% set navigation_bar = navigation_bar|default(default_bar) %} {% set color_nav_bar =
+color_nav_bar|default('orange') %} {% set active_page = active_page|default('Reception')-%} {% extends 'layout/default.html'
+%} {% block title %}:: HylaFax:: {% endblock title %} {% block head %}
+<link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static', filename='css/hylaweb.css')}}?v={{VERSION_JS}}">
+<script src="{{ url_for('static', filename='stomp/stomp.js') }}?v={{VERSION_JS}}"></script>
+<script src="{{ url_for('static', filename='js/hylaweb.js') }}?v={{VERSION_JS}}"></script>
+<script src="{{ url_for('static', filename='js/socket.js')}}?v={{VERSION_JS}}"></script> {% block import %}{% endblock %} {% endblock %} {%block body %}
+
+<div id="main-menu" class="ui top fixed inverted {{color_nav_bar}} menu">
+
+    {# Item commun au differentes parties d'Hylaweb #}
+    <div id="fonctionnalite" class="h1 header item">
+        {{active_page}}
+    </div>
+
+    {# partie reception#} {% if active_page == 'Réception' %}
+
+    <div class="item">
+        <div id="agence" class="ui right floated"> </div>
+    </div>
+
+    <div id="dropdown-service" class="ui dropdown icon item">
+        <span id="service-current"></span>
+        <i class="dropdown icon"></i>
+        <div id="liste-agence" class="menu">
+        </div>
+    </div>
+
+    <!-- <i class="check square icon green"></i> -->
+    <div id="check-default-service" class="item disabled">
+        <i class="check square icon green"></i>
+    </div>
+
+    <div class="filter item">
+        <span style="margin-right: 1em">Mes Fax</span>
+        <div id="filter-fax" data-content="Afficher mes fax" class="ui toggle checkbox">
+            <input type="checkbox">
+        </div>
+    </div>
+
+    {% endif %} {# menu pour l'emission #} {% if active_page == 'Émission' %}
+    <div class="item">
+        <div id="default-service" class="ui right floated"> </div>
+    </div>
+
+    {% endif %} {% if active_page == 'Archives' %}
+
+    <div class="item">
+        <div class="extra">
+            <div id="agence" class="ui right floated"> </div>
+        </div>
+    </div>
+
+    <div id="dropdown-service" class="ui dropdown icon item">
+        <span id="service-current"></span>
+        <i class="dropdown icon"></i>
+        <div id="liste-agence" class="menu">
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="right icon menu">
+        <div id="img-user" class="ui circular image avatar"></div>
+        <div id="user" class="item">
+            <span id="utilisateur"></span>
+        </div>
+    </div>
+</div>
+
+<div id="sidebar" class="ui left vertical icon visible sidebar menu">
+    {% for id, caption, icon in navigation_bar %} {% if id == "carnet" %}
+    <a id="{{ id|e }}" class="item{% if id == active_page %} active{% endif %} disabled" data-content="{{caption|e}}">
+        <i class="{{icon|e}}"></i>
+    </a>
+    {% else %}
+    <a id="{{ id|e }}" class="item{% if id == active_page %} active{% endif %}" data-content="{{caption|e}}">
+        <i class="{{icon|e}}"></i>
+    </a>
+    {% endif %} {% endfor %}
+</div>
+
+<div class="help ui modal scrolling">
+    <div class="header">
+        Guide d'utilisation de HylaFax
+    </div>
+    <div class="image content">
+        <div class="ui image">
+            <iframe src="" width="850" height="550" align="center"></iframe>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui ok right labeled icon button">
+            OK
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
+
+{% block content %}{% endblock %}
+
+<script>
+    hylaweb = hylaweb || {}
+
+    hylaweb.session = (function () {
+        var self = {}
+        self.guid = '{{user.guid_ad}}'
+        self.login = '{{login}}'
+        return self;
+    })();
+</script> {% endblock %}

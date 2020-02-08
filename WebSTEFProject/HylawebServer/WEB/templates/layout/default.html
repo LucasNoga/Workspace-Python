@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+
+
+    {# contient nos imports semantic, jQuery, etc... #} {% include 'partials/package.html' %} {% block head %} {% endblock %}
+
+</head>
+
+<body>
+    {% block body %}{% endblock %}
+</body>
+
+</html>

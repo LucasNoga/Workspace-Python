@@ -1,0 +1,14 @@
+[Unit]
+Description=Script to serve hylafax printer
+After=network.target
+
+[Service]
+User=ftpHylaprint
+Group=ftpHylaprint
+WorkingDirectory=/opt/HylaWEB/Scripts/HylaPrint
+Environment="PATH=/opt/HylaWEB/HylaWEBenv/bin"
+ExecStart=/opt/HylaWEB/HylaWEBenv/bin/python /opt/HylaWEB/Scripts/HylaPrint/automateHylaPrint.py
+
+[Install]
+WantedBy=multi-user.target
+
