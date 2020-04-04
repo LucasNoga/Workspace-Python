@@ -1,6 +1,0 @@
-flask
-gunicorn
-python-ldap
-Pillow
-Flask-Caching
-flasgger

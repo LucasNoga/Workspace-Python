@@ -1,9 +1,0 @@
-{% extends 'layout/hylasend.html' %} 
-
-{% set page_garde = "false" %}
-
-{% block droite %}
-<div class="column pdf">
-    <iframe id="fax" src="{{ url_for( 'static', filename='pdfjs/web/viewer.html' )}}?file={{url_fax}}"></iframe>
-</div>
-{% endblock %}

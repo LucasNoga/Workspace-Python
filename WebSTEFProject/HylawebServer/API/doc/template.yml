@@ -1,7 +1,0 @@
----
-basePath: "/"
-swagger: "2.0"
-info:
-  description: API to get data from Hylafax application
-  title: Hylafax API
-  version: 1.0
